@@ -1,0 +1,149 @@
+﻿@page "/youth"
+@using Core.Model
+@using ClientApp.Services
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<head>
+    <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+@if (adminUser == null)
+{
+    <h3>Du skal være logget ind for at se denne side.</h3>
+    <button @onclick="RedirectToLogin">Go to Login</button>
+}
+else
+{
+    <h3>Velkommen, @adminUser.Username</h3>
+    <button class="btn btn-danger" @onclick="Logout">Logout</button>
+}
+
+
+<header>
+<div style="text-align: right;">
+    <button id="navigate" class="bi bi-arrow-left-circle-fill" @onclick=ToAdminPage>  Tilbage</button>
+</div>
+</header>
+
+
+<h3>Unge frivillige 16-18</h3>
+
+
+
+<div class="searchApplications">
+    <EditForm Model="this" OnValidSubmit="PerformSearch">
+        <div class="searchApplications-inputgroup">
+            <InputText class="form-control" placeholder="Søg efter kræw nummer eller navn" @bind-Value="searchTerm" />
+            <button type="submit" class="btn btn-primary">Søg</button>
+        </div>
+    </EditForm>
+</div>
+
+@if (youthVolunteers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!filteredYouthVolunteers.Any())
+{
+    <p><em>No youth volunteers found.</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Kræv Nummer</th>
+                <th>Navn</th>
+                <th>Mail</th>
+                <th>Samtykke</th>
+                <th>Forældre navn</th>
+                <th>Dato for samtykke</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var volunteer in filteredYouthVolunteers)
+            {
+                <tr>
+                    <td>@volunteer.CrewNumber</td>
+                    <td>@volunteer.Name</td>
+                    <td>@volunteer.Mail</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(volunteer.ConsentForm))
+                        {
+                            <img src="@volunteer.ConsentForm" alt="Signature" style="width:200px; height:100px;" />
+                        }
+                        else
+                        {
+                            <p>No signature</p>
+                        }
+                    </td>
+                    <td>@volunteer.ParentName</td>
+                    <td>@volunteer.DateOfConsent</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<YouthVolunteer> youthVolunteers;
+    private List<YouthVolunteer> filteredYouthVolunteers;
+    private string searchTerm = string.Empty;
+    private Admin adminUser;
+
+    [Inject]
+    private IYouthVolunteerAdminService YouthVolunteerAdminService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        youthVolunteers = await YouthVolunteerAdminService.GetAllYouthVolunteers();
+        filteredYouthVolunteers = youthVolunteers;
+        adminUser = await localStorage.GetItemAsync<Admin>("adminUser");
+        if (adminUser == null)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+    }
+
+    private void FilterVolunteers()
+    {
+        if (string.IsNullOrEmpty(searchTerm))
+        {
+            filteredYouthVolunteers = youthVolunteers;
+        }
+        else
+        {
+            var lowerSearchTerm = searchTerm.ToLower();
+            filteredYouthVolunteers = youthVolunteers
+                .Where(v => v.CrewNumber.ToString().Contains(lowerSearchTerm) || v.Name.ToLower().Contains(lowerSearchTerm))
+                .ToList();
+        }
+    }
+
+    private void PerformSearch()
+    {
+        FilterVolunteers();
+    }
+
+
+
+    private void RedirectToLogin()
+    {
+        NavigationManager.NavigateTo("/login");
+    }
+
+    private async Task Logout()
+    {
+        await localStorage.RemoveItemAsync("adminUser");
+        NavigationManager.NavigateTo("/login");
+    }
+
+
+
+    private async Task ToAdminPage()
+    {
+        NavigationManager.NavigateTo("/admin", forceLoad: true);
+    }
+}

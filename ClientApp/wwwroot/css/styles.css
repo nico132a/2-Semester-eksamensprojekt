@@ -1,0 +1,241 @@
+
+@font-face {
+    font-family: "Mister Sinatra Slim";
+    src: url('../fonts/MisterSinatra-Slim.ttf');
+}
+
+.hovedtitel {
+    font-family: "Mister Sinatra Slim";
+    margin-top: 80px;
+    text-align: center;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    width: 100%; 
+    text-align: center; 
+}
+
+#login {
+    margin-left: auto; 
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+    #login:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+                
+
+
+#knap {
+    display: block;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.afsnit {
+    margin-left: 300px;
+    margin-top: 30px;
+    margin-right: 300px;
+}
+
+#logo2 {
+    max-width: 250px; 
+    height: auto;
+    margin-right: auto; 
+    float: left;
+    padding-left: 50px;
+}
+
+#logo {
+    position: absolute; 
+    top: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1000; 
+    max-width: 250px; 
+    height: auto;
+}
+
+.titel {
+    font-family: "Mister Sinatra Slim";
+    margin-bottom: 10px;
+}
+
+
+.footer {
+    background-color: steelblue;
+    text-align: center; 
+    padding: 20px 0; 
+    margin: 0;
+    width: 100%; 
+}
+
+#ig,
+#fb {
+    color:white;
+    background-color: steelblue;
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 1px solid #ccc; 
+    text-decoration: none; 
+}
+    #ig:hover,
+    #fb:hover {
+        background-color: #e3e3e3; 
+        border-color: #aaa; 
+    }
+
+.bi-instagram,
+.bi-facebook {
+    font-size: 24px; 
+}
+
+
+.top-row {
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: space-between; 
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 20px; 
+}
+
+
+
+.fejlbesked {
+    text-align: center;
+}
+
+
+.search-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    max-width: 500px; 
+    width: 100%;
+}
+
+
+.status-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.status {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    max-width: 400px;
+    width: 100%;
+    padding: 1rem;
+}
+
+.status-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    text-align: center;
+}
+
+.status-body {
+    padding: 0.5rem;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    min-height: calc(100vh - 200px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.btn.m-1.btn-red {
+    background-color: red !important;
+    color: white !important;
+}
+
+.btn.m-1.btn-green {
+    background-color: green !important;
+    color: white !important;
+}
+
+.btn.m-1.btn-yellow {
+    background-color: yellow !important;
+    color: black !important;
+}
+
+.waitlist {
+    background-color: yellow;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50; 
+    color: white;
+    padding: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    z-index: 1000;
+    border-radius: 0.5rem;
+    transition: top 1s ease-out, opacity 1s ease-out;
+    opacity: 0; 
+    font-size: 2.2em; 
+    width: 80%; 
+    max-width: 500px; 
+    text-align: center; 
+    font-family: "Mister Sinatra Slim";
+}
+
+    .notification.show {
+        display: block;
+        top: 20px; 
+        opacity: 1;
+    }
+
+
