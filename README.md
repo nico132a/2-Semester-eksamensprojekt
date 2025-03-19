@@ -17,7 +17,7 @@ På **admin-siden** får administratorerne et klart overblik over tilmeldingerne
 
 ---
 
-# **🇬🇧 English Version**
+# **English Version**
 
 ## **📋 Case**
 Cirkus Summarum is hosting a summer camp and wants to save time and energy on tedious administration.  
