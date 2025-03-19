@@ -1,29 +1,35 @@
-Cirkus Summarum afholder en sommercamp, hvor de gerne vil spare tid og energi på kedelig administration.
-De har en masse Excel-ark med en stor mængde data og en e-mail, hvor alle ansøgningerne kommer ind.
+# 📌 Cirkus Summarum - Sommercamp Tilmeldingssystem
 
-Løsning:
-Vi har skabt et nemt og overskueligt tilmeldingssystem til Cirkus Summarum.
-På adminsiden er det gjort overskueligt, hvordan de enkelte tilmeldte er organiseret.
-Farverne indikerer, hvor fyldte ugerne er.
+## **📋 Case**
+Cirkus Summarum afholder en sommercamp og ønsker at spare tid og energi på kedelig administration.  
+De håndterer en stor mængde data via Excel-ark og modtager alle ansøgninger via e-mail.
 
-Adgang til adminsiden:
-Brugernavn: Karsten
-Adgangskode: 123
+## **✅ Løsning**
+Vi har udviklet et **enkelt og overskueligt** tilmeldingssystem til Cirkus Summarum.  
+På **admin-siden** får administratorerne et klart overblik over tilmeldingerne.  
+🔹 **Farver** viser, hvor fyldte de forskellige uger er.
 
-Husk at starte ClientApp og ServerAPI op samtidig.
+## **🔑 Adgang til admin-siden**
+- **Brugernavn:** `Karsten`  
+- **Adgangskode:** `123`  
 
-English Version:
+🔸 Husk at starte **ClientApp** og **ServerAPI** samtidig.
 
-Cirkus Summarum is hosting a summer camp and wants to save time and energy on tedious administration.
-They have numerous Excel sheets with a large amount of data and an email inbox where all applications are received.
+---
 
-Solution:
-We have created a simple and user-friendly registration system for Cirkus Summarum.
-The admin page provides a clear overview of how the registered participants are organized.
-Colors indicate how full each week is.
+# **🇬🇧 English Version**
 
-Access to the admin page:
-Username: Karsten
-Password: 123
+## **📋 Case**
+Cirkus Summarum is hosting a summer camp and wants to save time and energy on tedious administration.  
+They manage a large amount of data using Excel sheets and receive all applications via email.
 
-Remember to start ClientApp and ServerAPI simultaneously.
+## **✅ Solution**
+We have developed a **simple and user-friendly** registration system for Cirkus Summarum.  
+The **admin page** provides a clear overview of all registered participants.  
+🔹 **Colors** indicate how full each week is.
+
+## **🔑 Access to the Admin Page**
+- **Username:** `Karsten`  
+- **Password:** `123`  
+
+🔸 Remember to start **ClientApp** and **ServerAPI** simultaneously.
